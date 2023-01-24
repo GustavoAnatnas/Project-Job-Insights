@@ -12,6 +12,9 @@ def read(path: str) -> List[Dict]:
         return list(reader)
 
 
+# print(read(path))
+
+
 def get_unique_job_types(path: str) -> List[str]:
     file = read(path)
     job_types = []
@@ -19,6 +22,9 @@ def get_unique_job_types(path: str) -> List[str]:
         if job["job_type"] not in job_types and job["job_type"] != "":
             job_types.append(job["job_type"])
     return job_types
+
+
+# print(get_unique_job_types(path))
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
@@ -30,3 +36,6 @@ def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
             filtered_jobs.append(job)
 
     return filtered_jobs
+
+
+# print(filter_by_job_type(read(path), "FULL_TIME"))
