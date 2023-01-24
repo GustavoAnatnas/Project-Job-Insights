@@ -24,22 +24,18 @@ def get_unique_job_types(path: str) -> List[str]:
     return job_types
 
 
-print(get_unique_job_types(path))
+# print(get_unique_job_types(path))
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
-    """Filters a list of jobs by job_type
 
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
+    filtered_jobs = []
 
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-    raise NotImplementedError
+    for job in jobs:
+        if job_type == job["job_type"]:
+            filtered_jobs.append(job)
+
+    return filtered_jobs
+
+
+# print(filter_by_job_type(read(path), "FULL_TIME"))
